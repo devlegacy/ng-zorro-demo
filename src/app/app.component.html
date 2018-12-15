@@ -1,21 +1,58 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+
+<nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzPlacement]="placement" nzTitle="Basic Drawer" (nzOnClose)="close()">
+  <nz-layout>
+    <!-- <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
+      <i nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'"></i>
+    </button> -->
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+        <div class="logo">
+        </div>
+      <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed">
+        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''">
+          <span title>
+            <i nz-icon type="mail"></i>
+            <span>Navigation One</span>
+          </span>
+        </li>
+        <li nz-submenu>
+          <span title>
+            <i nz-icon type="appstore"></i>
+            <span>Navigation Two</span>
+          </span>
+          <ul>
+            <li nz-menu-item>Option 5</li>
+            <li nz-menu-item>Option 6</li>
+            <li nz-submenu>
+              <span title>Submenu</span>
+              <ul>
+                <li nz-menu-item>Option 7</li>
+                <li nz-menu-item>Option 8</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title>
+            <i nz-icon type="setting"></i>
+            <span>Navigation Three</span>
+          </span>
+          <ul>
+            <li nz-menu-item>Option 9</li>
+            <li nz-menu-item>Option 10</li>
+            <li nz-menu-item>Option 11</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+  </nz-layout>
+</nz-drawer>
+<button nz-button nzType="primary" (click)="open()">Open</button>
+<h1>Demo NG-Zorro</h1>
+<p>
+  Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.
+
+  Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+</p>
+
+<button nz-button nzType="primary">Primary</button>
