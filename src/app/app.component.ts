@@ -6,7 +6,7 @@ import { Component, ViewChild, TemplateRef } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-zorro-demo';
+  title = 'Ng Zorro Demo';
 
   isCollapsed = false;
   triggerTemplate = null;
@@ -29,4 +29,5 @@ export class AppComponent {
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;
   }
+
 }
