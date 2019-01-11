@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,10 +9,17 @@ import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/fo
 export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
+  isCollapsed = false;
+  triggerTemplate = null;
+  @ViewChild('trigger') customTrigger: TemplateRef<void>;
 
   constructor(private fb: FormBuilder) {
   }
 
+  /** custom trigger can be TemplateRef **/
+  changeTrigger(): void {
+    this.triggerTemplate = this.customTrigger;
+  }
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       userName: [ null, [ Validators.required ] ],
