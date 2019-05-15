@@ -169,3 +169,148 @@
     </li>
   </ul>
 </nz-sider> -->
+
+
+<nz-layout class="layout">
+  <nz-header class="default-header">
+    <div class="logo"></div>
+    <button nz-button nzType="primary" [nzSize]="'large'" nzShape="circle" (click)="isCollapsed=!isCollapsed">
+      <i class="trigger"  nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" ></i>
+    </button>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+      <li nz-menu-item>nav 1</li>
+      <li nz-menu-item>nav 2</li>
+      <li nz-menu-item>nav 3</li>
+    </ul>
+  </nz-header>
+  <nz-layout>
+    <nz-sider [nzWidth]="200" style="background:#fff">
+      <ul nz-menu [nzMode]="'inline'" style="height:100%">
+        <li nz-submenu>
+          <span title><i nz-icon type="user"></i>subnav 1</span>
+          <ul>
+            <li nz-menu-item>option1</li>
+            <li nz-menu-item>option2</li>
+            <li nz-menu-item>option3</li>
+            <li nz-menu-item>option4</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="laptop"></i>subnav 2</span>
+          <ul>
+            <li nz-menu-item>option5</li>
+            <li nz-menu-item>option6</li>
+            <li nz-menu-item>option7</li>
+            <li nz-menu-item>option8</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="notification"></i>subnav 3</span>
+          <ul>
+            <li nz-menu-item>option9</li>
+            <li nz-menu-item>option10</li>
+            <li nz-menu-item>option11</li>
+            <li nz-menu-item>option12</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout style="padding:0 24px 24px">
+      <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+        <nz-breadcrumb-item>List</nz-breadcrumb-item>
+        <nz-breadcrumb-item>App</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <nz-content style="background:#fff; padding: 24px; min-height: 280px;">Content</nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>
+title = 'Ng Zorro Demo';
+
+  isCollapsed = false;
+  triggerTemplate = null;
+  @ViewChild('trigger') customTrigger: TemplateRef<void>;
+
+  /** custom trigger can be TemplateRef **/
+  changeTrigger(): void {
+    this.triggerTemplate = this.customTrigger;
+  }
+  visible = false;
+  placement = 'right';
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
+  }
+
+  toggleCollapsed(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
+
+  // .trigger {
+    //   padding: 0 24px;
+
+    //   font-size: 18px;
+    //   line-height: 64px;
+
+    //   cursor: pointer;
+    //   transition: color .3s;
+    // }
+
+    // .trigger:hover {
+    //   background-color: rgba(255,255,255,.2);
+    //   color: #fff;
+    // }
+
+    // .logo {
+    //   height: 32px;
+    //   margin: 16px;
+
+    //   background: rgba(255, 255, 255, .2);
+    // }
+    .logo {
+      float: left;
+
+      width: 120px;
+      height: 31px;
+      margin: 16px 28px 16px 0;
+
+      background: rgba(255, 255, 255, .2);
+    }
+
+
+
+
+    // :host ::ng-deep .trigger {
+      //   padding: 0 24px;
+
+      //   font-size: 18px;
+      //   line-height: 64px;
+
+      //   cursor: pointer;
+      //   transition: color .3s;
+      // }
+
+      :host ::ng-deep .trigger:hover {
+        color: #1890ff;
+      }
+
+      // :host ::ng-deep .logo {
+      //   height: 32px;
+      //   margin: 16px;
+
+      //   background: rgba(255, 255, 255, .2);
+      // }
+
+      // .header {
+      //   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+      // }
+      // .logo {
+      //   height: 32px;
+      //   margin: 16px;
+
+      //   background: rgba(255,255,255,.2);
+      // }
