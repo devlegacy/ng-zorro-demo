@@ -34,8 +34,15 @@
         <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text">File</span></span></li>
       </ul>
     </nz-sider>
-    <nz-content class="default-content">
-      Content
+    <nz-content [className]="isCollapsed ? 'default-content default-content--sider-closed' : 'default-content default-content--sider-opened'">
+      <div class="default-content__header">
+        <h1>Dashboard</h1>
+        <h2>Welcome!</h2>
+      </div>
+      <main class="main">
+
+        Content
+      </main>
       <br>
       <br>
       <br>
@@ -136,7 +143,7 @@
       <br>
       <br>
       <br>
+      <nz-footer>Footer</nz-footer>
     </nz-content>
-    <nz-footer>Footer</nz-footer>
   </nz-layout>
 </nz-layout>

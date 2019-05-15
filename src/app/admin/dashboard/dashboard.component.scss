@@ -6,9 +6,10 @@
     flex-direction: column;
   }
   &-header {
-    display: flex;
+    position: fixed;
+    z-index: 1;
 
-// position: fixed;
+    display: flex;
     box-shadow: 0 1px 10px rgba(0,0,0,.2);
     width: 100%;
     height: 64px;
@@ -16,13 +17,18 @@
 
     background: #1890ff;
     color: #fff;
+
+    align-items: center;
   }
   &-top-menu {
+    border: 0;
+    margin-left: 20px;
+
     background: transparent;
     color: #fff;
     & .ant-menu-item {
+      border: 0;
       border-radius: 4px;
-
       &:hover {
         background: rgba(255,255,255,.5);
         color: #fff;
@@ -35,6 +41,9 @@
         background: transparent;
         color: #fff;
       }
+      i {
+        margin: 0;
+      }
     }
     & .ant-menu-item-selected {
       background: transparent;
@@ -42,8 +51,6 @@
     }
   }
   &-logo {
-    float: left;
-
     height: 64px;
     overflow: hidden;
 
@@ -51,13 +58,44 @@
   }
   &-content {
     width: 100%;
-    // margin-top: 64px;
-    // margin-left: 200px;
+    margin-top: 64px;
+
+    transition: all .2s ease;
+
+    &--sider-opened {
+      margin-left: 220px;
+    }
+    &--sider-closed {
+      margin-left: 80px;
+    }
+
+    &__header {
+      display: flex;
+      padding: 12px 24px;
+      border-bottom: 1px solid #efe3e5;
+
+      background-color: #fafbfc;
+      color: #929292;
+
+      flex-direction: column;
+      justify-content: space-between;
+      h1 {
+        margin-bottom: 0;
+
+        font-weight: 400;
+      }
+    }
   }
   &-sider {
-    // position: fixed;
-    // height: 100%;
-    // margin-top: 64px;
+    position: fixed;
+
+    height: 100%;
+    margin-top: 64px;
+
     background: #fff;
   }
+}
+
+.main {
+  padding: 20px;
 }
