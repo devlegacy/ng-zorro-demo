@@ -10,7 +10,7 @@ export class AppComponent {
 
   isCollapsed = false;
   triggerTemplate = null;
-  @ViewChild('trigger') customTrigger: TemplateRef<void>;
+  @ViewChild('trigger', {static: true}) customTrigger: TemplateRef<void>;
 
   /** custom trigger can be TemplateRef **/
   changeTrigger(): void {

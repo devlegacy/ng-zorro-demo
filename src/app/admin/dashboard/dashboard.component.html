@@ -1,20 +1,43 @@
 <nz-layout class="default-layout">
   <nz-header class="default-header">
-    <nz-sider class="default-logo" nzCollapsedWidth="63" nzWidth="203" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+    <nz-sider class="default-logo"
+              [(nzCollapsed)]="isCollapsed"
+
+              nzCollapsible
+              [nzTrigger]="null">
+
+              <!-- nzCollapsedWidth="64"
+              nzWidth="203" -->
       <img src="./assets/logo-full.svg" alt="" style="width:160px; ">
     </nz-sider>
-
-    <ul nz-menu class="default-top-menu" [nzTheme]="'light'" [nzMode]="'horizontal'">
-      <li nz-menu-item class="trigger" (click)="isCollapsed=!isCollapsed">
-        <i nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'"></i>
+    <!-- <ul
+        nz-menu
+        nzTheme="light"
+        nzMode="horizontal"
+        > -->
+        <!-- class="default-top-menu" -->
+        <!-- [nzInlineCollapsed]="isCollapsed" -->
+      <!-- <li nz-menu-item class="trigger" (click)="isCollapsed=!isCollapsed">
+        <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold' "></i>
       </li>
       <li nz-menu-item>nav 1</li>
       <li nz-menu-item>nav 2</li>
       <li nz-menu-item>nav 3</li>
-    </ul>
+    </ul> -->
   </nz-header>
   <nz-layout>
-    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" nzWidth="220" [nzTrigger]="triggerTemplate" class="default-sider">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button (click)="isCollapsed=!isCollapsed">Hola</button>
+    <!-- <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" nzWidth="220" [nzTrigger]="triggerTemplate" class="default-sider">
       <ul nz-menu [nzTheme]="'light'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
         <li nz-submenu>
           <span title><i nz-icon type="user"></i><span class="nav-text">User</span></span>
@@ -144,6 +167,6 @@
       <br>
       <br>
       <nz-footer>Footer</nz-footer>
-    </nz-content>
+    </nz-content> -->
   </nz-layout>
 </nz-layout>

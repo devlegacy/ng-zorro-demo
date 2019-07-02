@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   validateForm: FormGroup;
   isCollapsed = false;
   triggerTemplate = null;
-  @ViewChild('trigger') customTrigger: TemplateRef<void>;
+  @ViewChild('trigger', {static: true}) customTrigger: TemplateRef<void>;
 
   constructor(private fb: FormBuilder) {
   }

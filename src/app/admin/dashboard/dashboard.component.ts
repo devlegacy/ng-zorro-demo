@@ -6,12 +6,14 @@ import { Component, ViewChild, TemplateRef, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  isCollapsed: boolean = false;
+  isCollapsed: boolean = true;
+  triggerTemplate = null;
+  @ViewChild('trigger', {static: false}) customTrigger: TemplateRef<void>;
+
   ngOnInit(): void {
 
+
   }
-  triggerTemplate = null;
-  @ViewChild('trigger') customTrigger: TemplateRef<void>;
 
   /** custom trigger can be TemplateRef **/
   changeTrigger(): void {
