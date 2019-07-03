@@ -1,22 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~normalize.css/normalize.css';
-/**
-  * Add a custom reset
-  */
-html {
-  box-sizing: border-box;
-}
+@charset 'UTF-8';
 
+@import '~normalize.css/normalize.css';
+
+/**
+ * Add a custom reset
+ */
 *,
 *:after,
 *:before {
   box-sizing: inherit;
   padding: 0;
   margin: 0;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  box-sizing: border-box;
 
   font-size: 16px;
 }
 
+/**
+ * Add a custom scrollbar
+ */
 ::-webkit-scrollbar {
   width: 6px;
   &-track {

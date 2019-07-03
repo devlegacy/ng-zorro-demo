@@ -5,7 +5,7 @@
 
     flex-direction: column;
   }
-  &-header {
+  &__header {
     position: fixed;
     z-index: 1;
 
@@ -19,13 +19,30 @@
     color: #fff;
 
     align-items: center;
+    &-logo {
+      max-height: 40px;
+      overflow: hidden;
+
+      background: #1890ff;
+
+      vertical-align: top;
+    }
+    &-img {
+      width: 160px;
+      max-height: 40px;
+
+      vertical-align: top;
+    }
   }
-  &-top-menu {
+  &__nav {
+    height: 40px;
     border: 0;
-    margin-left: 20px;
+    margin-left: 0;
 
     background: transparent;
     color: #fff;
+
+    line-height: 40px;
     & .ant-menu-item {
       border: 0;
       border-radius: 4px;
@@ -50,12 +67,7 @@
       color: #fff;
     }
   }
-  &-logo {
-    height: 64px;
-    overflow: hidden;
 
-    background: #1890ff;
-  }
   &-content {
     width: 100%;
     margin-top: 64px;
@@ -63,7 +75,7 @@
     transition: all .2s ease;
 
     &--sider-opened {
-      margin-left: 220px;
+      margin-left: 200px;
     }
     &--sider-closed {
       margin-left: 80px;
