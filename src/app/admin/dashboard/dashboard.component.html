@@ -1,11 +1,11 @@
 <nz-layout class="default-layout">
   <nz-header class="default__header">
-    <nz-sider class="default__header-logo" [(nzCollapsed)]="isCollapsed" nzCollapsedWidth="64" nzWidth="200px" nzCollapsible
-      [nzTrigger]="null">
+    <nz-sider class="default__header-logo" [(nzCollapsed)]="isCollapsed" nzCollapsedWidth="64" nzWidth="200px"
+      nzCollapsible [nzTrigger]="null">
       <img class="default__header-img" src="./assets/logo-full.svg" alt="">
     </nz-sider>
     <ul class="default__nav" nz-menu nzTheme="light" nzMode="horizontal">
-      <li  class="default__nav-item" nz-menu-item class="trigger" (click)="isCollapsed=!isCollapsed">
+      <li class="default__nav-item" nz-menu-item class="trigger" (click)="isCollapsed=!isCollapsed">
         <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold' "></i>
       </li>
       <!-- <li nz-menu-item>nav 1</li>
@@ -48,7 +48,26 @@
       </div>
       <main class="main">
 
-        Content
+        <form nz-form>
+
+          <nz-form-item>
+            <nz-form-label [nzSpan]="4">Nombre</nz-form-label>
+            <nz-form-control [nzSpan]="14" nzErrorTip="Please input your username!">
+              <input nz-input formControlName="fieldA" placeholder="input placeholder" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="4">Descripción</nz-form-label>
+            <nz-form-control [nzSpan]="14" nzErrorTip="Please input your Password!">
+              <textarea nz-input formControlName="filedB" placeholder="input placeholder"></textarea>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control [nzSpan]="14" [nzOffset]="4">
+              <button nz-button nzType="primary">Submit</button>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
       </main>
       <br>
       <br>
