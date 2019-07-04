@@ -2,19 +2,17 @@
   <h1>Iniciar sesión</h1>
   <form nz-form [formGroup]="validateForm" class="login__form" (ngSubmit)="submitForm()">
     <nz-form-item>
-      <nz-form-control>
-        <nz-input-group [nzPrefix]="prefixUser">
-          <input type="text" nz-input formControlName="userName" placeholder="Username">
+      <nz-form-control nzErrorTip="¡Por favor, ingresa tu nombre de usuario!">
+        <nz-input-group nzPrefixIcon="user">
+          <input type="text" nz-input formControlName="userName" placeholder="Username" />
         </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">¡Por favor, ingresa tu nombre de usuario!</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-control>
-        <nz-input-group [nzPrefix]="prefixLock">
+      <nz-form-control nzErrorTip="¡Por favor, ingresa tu contraseña de usuario!">
+        <nz-input-group nzPrefixIcon="lock">
           <input type="password" nz-input formControlName="password" placeholder="Password">
         </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">¡Por favor, ingresa tu contraseña de usuario!</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
@@ -23,9 +21,9 @@
           <span>Remember me</span>
         </label>
         <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>
-        <button nz-button class="login-form-button" [nzType]="'primary'" nzBlock>Login</button>
+        <button nz-button class="login-form-button" [nzType]="'primary'" nzBlock>Log in</button>
         Or
-        <a href="">register now!</a>
+        <a>register now!</a>
       </nz-form-control>
     </nz-form-item>
   </form>
