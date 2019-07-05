@@ -13,6 +13,9 @@ import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { LoginComponent } from './public/login/login.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { HeaderComponent } from './common/header/header.component';
+import { ProjectListComponent } from './auth/project-list/project-list.component';
+import { SiderComponent } from './common/sider/sider.component';
 
 registerLocaleData(es);
 
@@ -20,7 +23,10 @@ registerLocaleData(es);
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent,
+    ProjectListComponent,
+    SiderComponent
   ],
   imports: [
     BrowserModule,

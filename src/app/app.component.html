@@ -1,1 +1,49 @@
-<router-outlet></router-outlet>
+<nz-layout class="default-layout">
+  <app-header></app-header>
+  <nz-layout>
+    <nz-sider class="default-sider" [(nzCollapsed)]="isCollapsed" nzCollapsedWidth="80" nzWidth="200px" nzCollapsible
+      [nzTrigger]="null">
+      <div class="default__avatar">
+        <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+        <p><strong>Samuel</strong></p>
+        <p>samuel@gmail.com</p>
+      </div>
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li class="default-nav__item" nz-menu-item>
+          <i nz-icon nzType="folder-open" nzTheme="outline"></i>
+          <span class="default-nav__text">Proyectos</span>
+        </li>
+        <li class="default-nav__item" nz-menu-item>
+          <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
+          <span class="default-nav__text">Issues</span>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="user"></i><span class="nav-text">User</span></span>
+          <ul>
+            <li nz-menu-item>Tom</li>
+            <li nz-menu-item>Bill</li>
+            <li nz-menu-item>Alex</li>
+          </ul>
+        </li>
+        <li nz-submenu>
+          <span title><i nz-icon type="team"></i><span class="nav-text">Team</span></span>
+          <ul>
+            <li nz-menu-item>Team 1</li>
+            <li nz-menu-item>Team 2</li>
+          </ul>
+        </li>
+        <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text">File</span></span></li>
+      </ul>
+    </nz-sider>
+    <nz-content
+      [className]="isCollapsed ? 'default-content default-content--sider-closed' : 'default-content default-content--sider-opened'">
+      <div class="default-content__header">
+        <h1>Dashboard</h1>
+        <h2>Welcome!</h2>
+      </div>
+      <main class="main">
+        <router-outlet></router-outlet>
+      </main>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

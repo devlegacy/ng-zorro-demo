@@ -1,0 +1,94 @@
+.default- {
+  &header {
+    position: fixed;
+    z-index: 1;
+
+    display: flex;
+    box-shadow: 0 1px 10px rgba(0,0,0,.2);
+    width: 100%;
+    height: 64px;
+    padding: 0 16px;
+
+    background: #1890ff;
+    color: #fff;
+
+    align-items: center;
+    &__logo {
+      max-height: 40px;
+      overflow: hidden;
+
+      background: #1890ff;
+
+      line-height: initial;
+      vertical-align: top;
+    }
+    &__img {
+      position: relative;
+      left: -8px;
+
+      width: 160px;
+      max-height: 40px;
+
+      vertical-align: top;
+    }
+  }
+
+  &nav {
+    height: 40px;
+    border: 0;
+    margin-left: 0;
+
+    background: transparent;
+    color: #fff;
+
+    line-height: 40px;
+    & .ant-menu-item {
+      border: 0;
+      border-radius: 4px;
+      &:hover {
+        background: rgba(255,255,255,.5);
+        color: #fff;
+      }
+      &:active {
+        background: transparent;
+        color: #fff;
+      }
+      &:focus {
+        background: transparent;
+        color: #fff;
+      }
+      i {
+        margin: 0;
+      }
+    }
+    & .ant-menu-item-selected {
+      background: transparent;
+      color: #fff;
+    }
+    &__text {
+      display: none;
+    }
+  }
+}
+@media screen and (min-width: 600px) {
+  .default- {
+    &nav {
+      & .ant-menu-item {
+        i {
+          margin-right: 10px;
+        }
+      }
+      &__text {
+        display: inline-block;
+      }
+    }
+  }
+}
+// nz-sider {
+//   background: red;
+
+//   line-height: initial;
+//   .ant-layout-sider-children {
+//     line-height: initial;
+//   }
+// }

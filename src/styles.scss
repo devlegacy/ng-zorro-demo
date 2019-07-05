@@ -14,7 +14,6 @@
 }
 
 body {
-  font-size: 16px;
   text-rendering: optimizeLegibility;
 
   -webkit-font-smoothing: antialiased;
@@ -22,8 +21,6 @@ body {
 
 html {
   box-sizing: border-box;
-
-  font-size: 16px;
 }
 
 /**
@@ -56,4 +53,3 @@ html {
 .ant-input {
   font-size: 16px;
 }
-
