@@ -17,6 +17,7 @@ export class ProjectListComponent implements OnInit {
       data => {
         console.log(data);
         this.projects = data;
+        this.isLoading = false;
       },
       err => {
         console.error(err);
