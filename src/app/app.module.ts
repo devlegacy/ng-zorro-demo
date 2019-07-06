@@ -16,6 +16,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { HeaderComponent } from './common/header/header.component';
 import { ProjectListComponent } from './auth/project-list/project-list.component';
 import { SiderComponent } from './common/sider/sider.component';
+import { LoaderComponent } from './common/loader/loader.component';
 
 registerLocaleData(es);
 
@@ -26,7 +27,8 @@ registerLocaleData(es);
     DashboardComponent,
     HeaderComponent,
     ProjectListComponent,
-    SiderComponent
+    SiderComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
