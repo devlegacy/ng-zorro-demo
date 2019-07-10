@@ -14,10 +14,13 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit() {
     this._projectListService.getAll().subscribe(
-      data => {
-        console.log(data);
-        this.projects = data;
-        this.isLoading = false;
+      (data: Project[]) => {
+        setTimeout(() => {
+          console.log(data);
+          this.projects = data;
+          this.isLoading = false;
+        }, 3000)
+
       },
       err => {
         console.error(err);

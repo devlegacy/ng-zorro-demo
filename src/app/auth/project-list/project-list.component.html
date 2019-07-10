@@ -1,3 +1,19 @@
-<div *ngIf="isLoading">
+<div *ngIf="isLoading; else elseBlock">
   <app-loader></app-loader>
 </div>
+
+<ng-template #elseBlock>
+  <h1 nz-title>Proyectos</h1>
+  <button nz-button [nzSize]="size" nzType="primary">
+    <i nz-icon nzType="plus-circle" nzTheme="twotone"></i>
+    Nuevo proyecto
+  </button>
+  <div *ngFor="let project of projects">
+    <nz-card nzHoverable [nzTitle]="cardTitle">
+      <p>{{project.description}}</p>
+    </nz-card>
+    <ng-template #cardTitle>
+      <a>{{project.title}}</a>
+    </ng-template>
+  </div>
+</ng-template>
