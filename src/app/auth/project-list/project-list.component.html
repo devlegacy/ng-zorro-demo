@@ -1,6 +1,7 @@
-<div *ngIf="isLoading; else elseBlock">
+<div *ngIf="isHttpLoading; else elseBlock">
   <app-loader></app-loader>
 </div>
+<nz-alert *ngIf="hasHttpError" nzBanner nzType="error" nzMessage="Ocurrrio un error de conexión"></nz-alert>
 
 <ng-template #elseBlock>
   <h1 nz-title>Proyectos</h1>
@@ -9,11 +10,36 @@
     Nuevo proyecto
   </button>
   <div *ngFor="let project of projects">
-    <nz-card nzHoverable [nzTitle]="cardTitle">
+    <nz-card nzHoverable [nzTitle]="cardTitle" style="margin-top:20px"
+      [nzActions]="[actionDelete, actionEdit, actionEllipsis]">
       <p>{{project.description}}</p>
     </nz-card>
     <ng-template #cardTitle>
       <a>{{project.title}}</a>
+    </ng-template>
+    <ng-template #actionDelete>
+      <button
+        #btnDelete
+        nz-button
+        nzType="primary"
+        nz-popconfirm
+        nzPlacement="rightTop"
+        nzIcon="question-circle-o"
+        nzTitle="¿Esta seguro de eliminar el siguiente proyecto?"
+        nzOkText="Si, continuar" nzCancelText="No, cancelar"
+        (nzOnConfirm)="onDeleteProject(project, btnDelete)"
+        (nzOnCancel)="cancel(btnDelete)"
+      >
+        <i nz-icon nzType="delete" nzTheme="outline"></i>
+      </button>
+    </ng-template>
+    <ng-template #actionEdit>
+      <button nz-button nzType="primary" (click)="demoClick(project, $event)">
+        <i nz-icon nzType="edit"></i>
+      </button>
+    </ng-template>
+    <ng-template #actionEllipsis>
+      <i nz-icon nzType="ellipsis"></i>
     </ng-template>
   </div>
 </ng-template>

@@ -20,4 +20,14 @@ export class ProjectListService {
       }
     });
   }
+
+  delete(project: Project) {
+    const { API_URL } = environment;
+    const url = `${API_URL}/projects/${project.id}`;
+    return this._http.delete<Array<Project>>(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+  }
 }

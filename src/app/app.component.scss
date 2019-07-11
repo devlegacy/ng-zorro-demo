@@ -1,11 +1,27 @@
 .default- {
+  &layout {
+    min-height: 100%;
+  }
+
   &sider {
     position: fixed;
 
     height: 100%;
     margin-top: 64px;
+  }
 
-    background: #fff;
+  &content {
+    width: 100%;
+    margin-top: 64px;
+
+    // transition: all .2s ease;
+
+    &--sider-opened {
+      margin-left: 200px;
+    }
+    &--sider-closed {
+      margin-left: 80px;
+    }
   }
 }
 
