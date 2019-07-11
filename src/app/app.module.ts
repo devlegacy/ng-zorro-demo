@@ -17,6 +17,11 @@ import { HeaderComponent } from './common/header/header.component';
 import { ProjectListComponent } from './auth/project-list/project-list.component';
 import { SiderComponent } from './common/sider/sider.component';
 import { LoaderComponent } from './common/loader/loader.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HomeComponent } from './auth/home/home.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { PublicGuard } from './shared/guards/public.guard';
+import { NotFoundComponent } from './common/not-found/not-found.component';
 
 registerLocaleData(es);
 
@@ -28,7 +33,9 @@ registerLocaleData(es);
     HeaderComponent,
     ProjectListComponent,
     SiderComponent,
-    LoaderComponent
+    LoaderComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +44,10 @@ registerLocaleData(es);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxWebstorageModule.forRoot()
   ],
-  providers: [{ provide: NZ_I18N, useValue: es_ES }],
+  providers: [{ provide: NZ_I18N, useValue: es_ES }, AuthGuard, PublicGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

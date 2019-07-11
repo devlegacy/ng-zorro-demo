@@ -57,6 +57,10 @@
         background: transparent;
         color: #fff;
       }
+      &:visited {
+        background: transparent;
+        color: #fff;
+      }
       i {
         margin: 0;
       }
@@ -66,7 +70,8 @@
       color: #fff;
     }
     &__text {
-      display: none;
+      background: transparent;
+      color: #fff !important;
     }
   }
 }

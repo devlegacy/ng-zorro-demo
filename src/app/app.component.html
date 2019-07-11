@@ -1,6 +1,6 @@
 <!-- <nz-alert nzBanner nzType="error" nzMessage="Ocurrrio un error de conexión"></nz-alert> -->
 
-<nz-layout class="default-layout">
+<nz-layout class="default-layout" *ngIf="_authService.isLoggedIn(); else userloggedOut">
   <app-header></app-header>
   <nz-layout>
     <nz-sider class="default-sider" [(nzCollapsed)]="isCollapsed" nzTheme="light" nzCollapsedWidth="80" nzWidth="200px"
@@ -65,8 +65,11 @@
       </div> -->
       <main class="main">
         <router-outlet></router-outlet>
-        <app-project-list></app-project-list>
       </main>
     </nz-content>
   </nz-layout>
 </nz-layout>
+
+<ng-template #userloggedOut>
+  <router-outlet></router-outlet>
+</ng-template>

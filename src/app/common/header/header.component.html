@@ -8,12 +8,19 @@
       <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold' "></i>
     </li>
     <li class="default-nav__item" nz-menu-item>
-      <i nz-icon nzType="folder-open" nzTheme="outline"></i>
-      <span class="default-nav__text">Proyectos</span>
+      <a routerLink="/projects" class="default-nav__text" rel="noopener noreferrer">
+          <i nz-icon nzType="folder-open" nzTheme="outline"></i>
+          Proyectos
+        </a>
     </li>
     <li class="default-nav__item" nz-menu-item>
-      <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
-      <span class="default-nav__text">Issues</span>
+      <a routerLink="/issues" class="default-nav__text" rel="noopener noreferrer">
+        <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
+        Issues
+      </a>
     </li>
+    <!-- <li nz-menu-item>
+      <a class="default-nav__text" href="https://ng.ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+    </li> -->
   </ul>
 </nz-header>

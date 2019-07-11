@@ -1,4 +1,5 @@
 import { Component, ViewChild, TemplateRef } from '@angular/core';
+import { AuthenticationService } from './shared/services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,5 @@ import { Component, ViewChild, TemplateRef } from '@angular/core';
 })
 export class AppComponent {
   title = 'Ng Zorro Demo';
-
+  constructor(public _authService:AuthenticationService){}
 }
