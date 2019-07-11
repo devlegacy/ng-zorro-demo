@@ -7,6 +7,7 @@ import { AuthenticationService } from './shared/services/authentication.service'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Ng Zorro Demo';
+  title:String = 'App - Project';
+  isCollapsed:boolean = false;
   constructor(public _authService:AuthenticationService){}
 }
