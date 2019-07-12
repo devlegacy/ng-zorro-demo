@@ -47,7 +47,7 @@ export class ProjectListComponent implements OnInit {
     // const target = $e.target as HTMLButtonElement;
     btnDelete.el.setAttribute('disabled', 'true');
 
-    this._projectListService.delete(project).subscribe(
+    this._projectListService.deleteProject(project).subscribe(
       data => {
         console.log(data);
         this.getAllProjects();

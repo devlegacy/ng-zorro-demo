@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
   API_URL = environment.API_URL;
-  constructor(private _http: HttpClient) { }
+  constructor(public _http: HttpClient) { }
 
   public get(url, token): Observable<any> {
     const headers = {

@@ -3,31 +3,41 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project';
 import { environment } from 'src/environments/environment';
+import { AuthenticationService } from './authentication.service';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectListService {
+export class ProjectListService extends HttpService {
 
-  constructor(private _http: HttpClient) { }
-
-  getAll(): Observable<Array<Project>> {
-    const { API_URL } = environment;
-    const url = `${API_URL}/projects`;
-    return this._http.get<Array<Project>>(url, {
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
+  constructor(public _http: HttpClient, public _authService: AuthenticationService) {
+    super(_http);
   }
 
-  delete(project: Project) {
-    const { API_URL } = environment;
-    const url = `${API_URL}/projects/${project.id}`;
-    return this._http.delete<Array<Project>>(url, {
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    });
+  getAll(): Observable<Array<Project>> {
+    // const { API_URL } = environment;
+    const url = `${this.API_URL}/projects`;
+    const token = this._authService.user.api_token;
+    // return this._http.get<Array<Project>>(url, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   }
+    // });
+
+    return this.get(url, token);
+  }
+
+  deleteProject(project: Project) {
+    // const { API_URL } = environment;
+    const url = `${this.API_URL}/projects/${project.id}`;
+    const token = this._authService.user.api_token;
+    // return this._http.delete<Array<Project>>(url, {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   }
+    // });
+
+    return this.delete(url, token);
   }
 }
