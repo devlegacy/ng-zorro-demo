@@ -7,19 +7,28 @@
       nzCollapsible [nzTrigger]="null">
       <div class="default__avatar">
         <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-        <p><strong>Samuel</strong></p>
-        <p>samuel@gmail.com</p>
+        <p><strong>{{_authService.user.name}}</strong></p>
+        <p>
+          <a href="mailto:{{_authService.user.email}}">{{_authService.user.email}}</a></p>
       </div>
       <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
         <li class="default-nav__item" nz-menu-item>
-          <i nz-icon nzType="folder-open" nzTheme="outline"></i>
-          <span class="default-nav__text">Proyectos</span>
+          <a routerLink="/projects" class="default-nav__text" rel="noopener noreferrer">
+            <i nz-icon nzType="folder-open" nzTheme="outline"></i>
+            Proyectos
+          </a>
         </li>
         <li class="default-nav__item" nz-menu-item>
-          <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
-          <span class="default-nav__text">Issues</span>
+          <a routerLink="/issues" class="default-nav__text" rel="noopener noreferrer">
+            <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
+            Issues
+          </a>
         </li>
-        <li nz-submenu>
+        <li class="default-nav__item" nz-menu-item (click)="logout()">
+          <i nz-icon nzType="logout" nzTheme="outline"></i>
+          Logout
+        </li>
+        <!-- <li nz-submenu>
           <span title><i nz-icon type="user"></i><span class="nav-text">User</span></span>
           <ul>
             <li nz-menu-item>Tom</li>
@@ -55,7 +64,7 @@
             <li nz-menu-item>Team 2</li>
           </ul>
         </li>
-        <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text">File</span></span></li>
+        <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text">File</span></span></li> -->
       </ul>
     </nz-sider>
     <nz-content class="default-content default-content--sider-opened">
