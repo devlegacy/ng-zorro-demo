@@ -4,8 +4,14 @@
 <nz-alert *ngIf="hasHttpError" nzBanner nzType="error" nzMessage="Ocurrrio un error de conexión"></nz-alert>
 
 <ng-template #elseBlock>
-  <h1 nz-title>Proyectos</h1>
-  <button nz-button [nzSize]="size" nzType="primary">
+  <nz-page-header style="margin-left: -24px;margin-right: -24px;margin-top: -24px;margin-bottom: 24px;border-bottom: 1px solid #efe3e5;">
+    <nz-page-header-title>
+      <h2 nz-title>Proyectos</h2>
+    </nz-page-header-title>
+    <!-- <nz-page-header-subtitle>This is a subtitle</nz-page-header-subtitle> -->
+  </nz-page-header>
+  <!-- <h1 nz-title>Proyectos</h1> -->
+  <button nz-button [nzSize]="size" nzType="primary" (click)="open()">
     <i nz-icon nzType="plus-circle" nzTheme="twotone"></i>
     Nuevo proyecto
   </button>
@@ -18,18 +24,9 @@
       <a>{{project.title}}</a>
     </ng-template>
     <ng-template #actionDelete>
-      <button
-        #btnDelete
-        nz-button
-        nzType="primary"
-        nz-popconfirm
-        nzPlacement="rightTop"
-        nzIcon="question-circle-o"
-        nzTitle="¿Esta seguro de eliminar el siguiente proyecto?"
-        nzOkText="Si, continuar" nzCancelText="No, cancelar"
-        (nzOnConfirm)="onDeleteProject(project, btnDelete)"
-        (nzOnCancel)="cancel(btnDelete)"
-      >
+      <button #btnDelete nz-button nzType="primary" nz-popconfirm nzPlacement="rightTop" nzIcon="question-circle-o"
+        nzTitle="¿Esta seguro de eliminar el siguiente proyecto?" nzOkText="Si, continuar" nzCancelText="No, cancelar"
+        (nzOnConfirm)="onDeleteProject(project, btnDelete)" (nzOnCancel)="cancel(btnDelete)">
         <i nz-icon nzType="delete" nzTheme="outline"></i>
       </button>
     </ng-template>
@@ -43,3 +40,35 @@
     </ng-template>
   </div>
 </ng-template>
+
+<!-- [nzWidth]="50%" -->
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
+  [nzMaskClosable]="false" [nzWidth]="720"  [nzVisible]="visible" nzTitle="Crear proyecto" (nzOnClose)="close()">
+  <form nz-form>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>Titulo</nz-form-label>
+          <nz-form-control>
+            <input nz-input placeholder="Ingrese un titulo para el proyecto" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row nzGutter="8">
+      <div nz-col nzSpan="24">
+        <nz-form-item>
+          <nz-form-label>Descripción</nz-form-label>
+          <nz-form-control>
+            <textarea nz-input placeholder="Ingrese una descripción para el proyecto"
+              [nzAutosize]="{ minRows: 4, maxRows: 4 }"></textarea>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+  </form>
+  <div class="footer">
+    <button type="button" (click)="close()" class="ant-btn" style="margin-right: 8px;"><span>Cancel</span></button>
+    <button type="button" (click)="close()" class="ant-btn ant-btn-primary"><span>Submit</span></button>
+  </div>
+</nz-drawer>

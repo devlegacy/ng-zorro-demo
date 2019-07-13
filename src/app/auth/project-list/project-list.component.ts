@@ -12,7 +12,7 @@ export class ProjectListComponent implements OnInit {
   isHttpLoading: boolean = true;
   hasHttpError: boolean = false;
   canEditProject: boolean = false;
-
+  visible: boolean = false;
   projects: Array<Project>;
   constructor(private _projectListService: ProjectListService, private _nzMessageService: NzMessageService) { }
 
@@ -90,5 +90,13 @@ export class ProjectListComponent implements OnInit {
 
   confirm(): void {
     this._nzMessageService.success('Eliminando proyecto');
+  }
+
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
   }
 }

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  isLoading:boolean = false;
   validateForm: FormGroup;
   user: any = <any>{};
 
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   submitForm($e: Event): void {
     $e.preventDefault();
-
+    this.isLoading = true;
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
@@ -41,13 +41,16 @@ export class LoginComponent implements OnInit {
         this._authService.hasSession = true;
         this._locker.store('user', data);
         this._route.navigate(['/home']);
+        this.isLoading = false;
       },
       err => {
         console.error(err);
         this._authService.hasSession = false;
+        this.isLoading = false;
       },
       () => {
         console.log('Finish');
+        this.isLoading = false;
       }
     );
   }
