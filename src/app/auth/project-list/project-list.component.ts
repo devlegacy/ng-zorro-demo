@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectListService } from 'src/app/shared/services/project-list.service';
 import { Project } from 'src/app/shared/models/project';
 import { NzMessageService, NzButtonComponent } from 'ng-zorro-antd';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project-list',
@@ -14,10 +15,19 @@ export class ProjectListComponent implements OnInit {
   canEditProject: boolean = false;
   visible: boolean = false;
   projects: Array<Project>;
-  constructor(private _projectListService: ProjectListService, private _nzMessageService: NzMessageService) { }
+  project: Project = null;
+  users:any = [];
+  frmProject: FormGroup;
+
+  constructor(private _projectListService: ProjectListService, private _nzMessageService: NzMessageService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.getAllProjects();
+    this.frmProject = this.fb.group({
+      title: [null, [Validators.required]],
+      slug: [null, [Validators.required]],
+      description: [null, [Validators.required]],
+    });
   }
 
   getAllProjects() {
@@ -57,6 +67,30 @@ export class ProjectListComponent implements OnInit {
       },
       () => {
         console.info('Finish');
+      }
+    );
+  }
+
+  submitForm($e: Event) {
+    for (const i in this.frmProject.controls) {
+      this.frmProject.controls[i].markAsDirty();
+      this.frmProject.controls[i].updateValueAndValidity();
+    }
+
+    this.project = this.frmProject.value;
+    this.project.user_id = 2;
+    console.log(this.project);
+
+    this._projectListService.createProject(this.project).subscribe(
+      (data) => {
+        console.log(data);
+        this.close();
+      },
+      err => {
+        console.error(err);
+      },
+      () => {
+        console.log('end');
       }
     );
   }

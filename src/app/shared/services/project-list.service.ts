@@ -40,4 +40,11 @@ export class ProjectListService extends HttpService {
 
     return this.delete(url, token);
   }
+
+  createProject(project:Project) {
+    const url = `${this.API_URL}/projects`;
+    const token = this._authService.user.api_token;
+
+    return this.post(url,project, token);
+  }
 }

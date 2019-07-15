@@ -4,7 +4,8 @@
 <nz-alert *ngIf="hasHttpError" nzBanner nzType="error" nzMessage="Ocurrrio un error de conexión"></nz-alert>
 
 <ng-template #elseBlock>
-  <nz-page-header style="margin-left: -24px;margin-right: -24px;margin-top: -24px;margin-bottom: 24px;border-bottom: 1px solid #efe3e5;">
+  <nz-page-header
+    style="margin-left: -24px;margin-right: -24px;margin-top: -24px;margin-bottom: 24px;border-bottom: 1px solid #efe3e5;">
     <nz-page-header-title>
       <h2 nz-title>Proyectos</h2>
     </nz-page-header-title>
@@ -43,32 +44,46 @@
 
 <!-- [nzWidth]="50%" -->
 <nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
-  [nzMaskClosable]="false" [nzWidth]="720"  [nzVisible]="visible" nzTitle="Crear proyecto" (nzOnClose)="close()">
-  <form nz-form>
+  [nzMaskClosable]="false" [nzWidth]="720" [nzVisible]="visible" nzTitle="Crear proyecto" (nzOnClose)="close()">
+  <form nz-form [formGroup]="frmProject" (ngSubmit)="submitForm($event)">
     <div nz-row nzGutter="8">
       <div nz-col nzSpan="12">
         <nz-form-item>
           <nz-form-label>Titulo</nz-form-label>
-          <nz-form-control>
-            <input nz-input placeholder="Ingrese un titulo para el proyecto" />
+          <nz-form-control nzErrorTip="¡Por favor, ingrese un titulo valido!">
+            <input nz-input placeholder="Ingrese un titulo para el proyecto" formControlName="title" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>Slug</nz-form-label>
+          <nz-form-control nzErrorTip="¡Por favor, ingrese un slug valido!">
+            <input nz-input placeholder="Ingrese un slug para el proyecto" formControlName="slug" />
           </nz-form-control>
         </nz-form-item>
       </div>
     </div>
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select an user"
+      [(ngModel)]="selectedValue">
+      <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+      <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+      <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+    </nz-select>
     <div nz-row nzGutter="8">
       <div nz-col nzSpan="24">
         <nz-form-item>
           <nz-form-label>Descripción</nz-form-label>
-          <nz-form-control>
+          <nz-form-control nzErrorTip="¡Por favor, ingrese una descripción valida!">
             <textarea nz-input placeholder="Ingrese una descripción para el proyecto"
-              [nzAutosize]="{ minRows: 4, maxRows: 4 }"></textarea>
+              [nzAutosize]="{ minRows: 4, maxRows: 4 }" formControlName="description"></textarea>
           </nz-form-control>
         </nz-form-item>
       </div>
     </div>
+    <div class="footer">
+      <button type="button" (click)="close()" class="ant-btn" style="margin-right: 8px;"><span>Cancelar</span></button>
+      <button nz-button type="submit" class="ant-btn ant-btn-primary"><span>Crear</span></button>
+    </div>
   </form>
-  <div class="footer">
-    <button type="button" (click)="close()" class="ant-btn" style="margin-right: 8px;"><span>Cancelar</span></button>
-    <button type="button" (click)="close()" class="ant-btn ant-btn-primary"><span>Crear</span></button>
-  </div>
 </nz-drawer>
