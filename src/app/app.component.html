@@ -1,7 +1,7 @@
 <!-- <nz-alert nzBanner nzType="error" nzMessage="Ocurrrio un error de conexión"></nz-alert> -->
 
 <nz-layout class="default-layout" *ngIf="_authService.isLoggedIn(); else userloggedOut">
-  <app-header></app-header>
+  <app-header [isCollapsed]="isCollapsed" (changeCollapsed)="onChangeCollapsed($event)"></app-header>
   <nz-layout>
     <nz-sider class="default-sider" [(nzCollapsed)]="isCollapsed" nzTheme="light" nzCollapsedWidth="80" nzWidth="200px"
       nzCollapsible [nzTrigger]="null">

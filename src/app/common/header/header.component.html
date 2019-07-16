@@ -4,7 +4,7 @@
     <img class="default-header__img" src="./assets/logo-full.svg" alt="">
   </nz-sider>
   <ul class="default-nav" nz-menu nzTheme="light" nzMode="horizontal">
-    <li class="default-nav__item" nz-menu-item (click)="isCollapsed=!isCollapsed">
+    <li class="default-nav__item" nz-menu-item (click)="collapsing()">
       <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold' "></i>
     </li>
     <li class="default-nav__item" nz-menu-item>

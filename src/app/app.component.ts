@@ -8,12 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title:String = 'App - Project';
-  isCollapsed:boolean = false;
-  constructor(public _authService:AuthenticationService, public _router:Router){}
+  title: String = 'App - Project';
+  isCollapsed: boolean = false;
+  constructor(public _authService: AuthenticationService, public _router: Router) { }
 
   logout() {
     this._authService.logOut();
     this._router.navigate(['/login']);
+  }
+  onChangeCollapsed($e: boolean) {
+    // console.log($e);
+    this.isCollapsed = $e;
   }
 }

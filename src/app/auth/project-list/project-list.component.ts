@@ -3,6 +3,7 @@ import { ProjectListService } from 'src/app/shared/services/project-list.service
 import { Project } from 'src/app/shared/models/project';
 import { NzMessageService, NzButtonComponent } from 'ng-zorro-antd';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-project-list',
@@ -16,16 +17,19 @@ export class ProjectListComponent implements OnInit {
   visible: boolean = false;
   projects: Array<Project>;
   project: Project = null;
-  users:any = [];
+  users: Array<any> = [];
+  userSelected: number = null;
   frmProject: FormGroup;
 
-  constructor(private _projectListService: ProjectListService, private _nzMessageService: NzMessageService, private fb: FormBuilder) { }
+  constructor(public _projectListService: ProjectListService, public _nzMessageService: NzMessageService, public fb: FormBuilder, public _userService: UserService) { }
 
   ngOnInit() {
     this.getAllProjects();
+    this.getAllUsers();
     this.frmProject = this.fb.group({
       title: [null, [Validators.required]],
       slug: [null, [Validators.required]],
+      user_id: [null, [Validators.required]],
       description: [null, [Validators.required]],
     });
   }
@@ -47,6 +51,23 @@ export class ProjectListComponent implements OnInit {
       },
       () => {
         console.info('Finish');
+      }
+    );
+  }
+
+  getAllUsers() {
+    this._userService.getAll().subscribe(
+      (data: []) => {
+        this.users = data;
+        if (this.users.length > 0) {
+          this.userSelected = this.users[0].id;
+        }
+      },
+      err => {
+        console.error(err);
+      },
+      () => {
+        console.info('End users fetch');
       }
     );
   }
@@ -84,6 +105,7 @@ export class ProjectListComponent implements OnInit {
     this._projectListService.createProject(this.project).subscribe(
       (data) => {
         console.log(data);
+        this.getAllProjects();
         this.close();
       },
       err => {
