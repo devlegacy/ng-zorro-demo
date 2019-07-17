@@ -1,65 +1,78 @@
+$header-height:64px;
+$item-height:40px;
+$background: #1890ff;
+$color: #fff;
+
+:host {
+  position: fixed;
+  z-index: 1;
+
+  display: block;
+  box-shadow: 0 1px 10px rgba(0,0,0,.2);
+  width: 100%;
+  height: $header-height;
+}
 .default- {
   &header {
-    position: fixed;
-    z-index: 1;
-
     display: flex;
-    box-shadow: 0 1px 10px rgba(0,0,0,.2);
-    width: 100%;
-    height: 64px;
     padding: 0 16px;
 
-    background: #1890ff;
-    color: #fff;
+    background: $background;
+    color: $color;
 
     align-items: center;
     &__logo {
-      max-height: 40px;
+      height: $item-height;
+
       overflow: hidden;
 
-      background: #1890ff;
-
-      line-height: initial;
-      vertical-align: top;
+      background: red;
     }
     &__img {
       position: relative;
       left: -8px;
 
       width: 160px;
-      max-height: 40px;
+      height: $item-height;
 
       vertical-align: top;
     }
   }
 
   &nav {
-    height: 40px;
+
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
     border: 0;
     margin-left: 0;
-
     background: transparent;
-    color: #fff;
-
-    line-height: 40px;
+    color: $color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
     & .ant-menu-item {
       border: 0;
       border-radius: 4px;
       &:hover {
         background: rgba(255,255,255,.5);
-        color: #fff;
+        color: $color;
       }
       &:active {
         background: transparent;
-        color: #fff;
+        color: $color;
       }
       &:focus {
         background: transparent;
-        color: #fff;
+        color: $color;
       }
       &:visited {
         background: transparent;
-        color: #fff;
+        color: $color;
       }
       i {
         margin: 0;
@@ -67,11 +80,11 @@
     }
     & .ant-menu-item-selected {
       background: transparent;
-      color: #fff;
+      color: $color;
     }
     &__text {
       background: transparent;
-      color: #fff !important;
+      color: $color !important;
     }
   }
 }

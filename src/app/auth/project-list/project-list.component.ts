@@ -98,23 +98,25 @@ export class ProjectListComponent implements OnInit {
       this.frmProject.controls[i].updateValueAndValidity();
     }
 
-    this.project = this.frmProject.value;
-    this.project.user_id = 2;
-    console.log(this.project);
+    if (this.frmProject.valid) {
+      this.project = this.frmProject.value;
+      this.project.user_id = 2;
+      console.log(this.project);
 
-    this._projectListService.createProject(this.project).subscribe(
-      (data) => {
-        console.log(data);
-        this.getAllProjects();
-        this.close();
-      },
-      err => {
-        console.error(err);
-      },
-      () => {
-        console.log('end');
-      }
-    );
+      this._projectListService.createProject(this.project).subscribe(
+        (data) => {
+          console.log(data);
+          this.getAllProjects();
+          this.close();
+        },
+        err => {
+          console.error(err);
+        },
+        () => {
+          console.log('end');
+        }
+      );
+    }
   }
 
   demoClick(project: Project, $e: Event) {
@@ -154,5 +156,6 @@ export class ProjectListComponent implements OnInit {
 
   close(): void {
     this.visible = false;
+    this.frmProject.reset();
   }
 }

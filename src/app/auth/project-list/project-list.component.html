@@ -16,9 +16,14 @@
     <i nz-icon nzType="plus-circle" nzTheme="twotone"></i>
     Nuevo proyecto
   </button>
+  <nz-select  style="display:block; width:200px; margin-top:20px;" nzShowSearch nzAllowClear nzPlaceHolder="Select a person"
+    [(ngModel)]="selectedValue">
+    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+  </nz-select>
   <div *ngFor="let project of projects">
-    <nz-card nzHoverable [nzTitle]="cardTitle" style="margin-top:20px"
-      [nzActions]="[actionDelete, actionEdit, actionEllipsis]">
+    <nz-card nzHoverable [nzTitle]="cardTitle" style="margin-top:20px" [nzActions]="[actionDelete]">
       <p>{{project.description}}</p>
     </nz-card>
     <ng-template #cardTitle>
@@ -44,7 +49,7 @@
 
 <!-- [nzWidth]="50%" -->
 <nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
-  [nzMaskClosable]="false" [nzWidth]="720" [nzVisible]="visible" nzTitle="Crear proyecto" (nzOnClose)="close()">
+  [nzMaskClosable]="true" [nzWidth]="720" [nzVisible]="visible" nzTitle="Crear proyecto" (nzOnClose)="close()">
   <form nz-form [formGroup]="frmProject" (ngSubmit)="submitForm($event)">
     <div nz-row nzGutter="8">
       <div nz-col nzSpan="12">
@@ -64,8 +69,8 @@
         </nz-form-item>
       </div>
     </div>
-    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Seleccione un usuario"
-      [(ngModel)]="userSelected" formControlName="user_id" >
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Seleccione un usuario" [(ngModel)]="userSelected"
+      formControlName="user_id">
       <nz-option *ngFor="let user of users" [nzLabel]="user.name" [nzValue]="user.id"></nz-option>
     </nz-select>
     <div nz-row nzGutter="8">

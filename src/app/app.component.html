@@ -1,5 +1,4 @@
 <!-- <nz-alert nzBanner nzType="error" nzMessage="Ocurrrio un error de conexión"></nz-alert> -->
-
 <nz-layout class="default-layout" *ngIf="_authService.isLoggedIn(); else userloggedOut">
   <app-header [isCollapsed]="isCollapsed" (changeCollapsed)="onChangeCollapsed($event)"></app-header>
   <nz-layout>
@@ -12,66 +11,25 @@
           <a href="mailto:{{_authService.user.email}}">{{_authService.user.email}}</a></p>
       </div>
       <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-        <li class="default-nav__item" nz-menu-item>
-          <a routerLink="/projects" class="default-nav__text" rel="noopener noreferrer">
+        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Proyectos' : ''">
+          <a routerLink="/projects" class="" rel="noopener noreferrer">
             <i nz-icon nzType="folder-open" nzTheme="outline"></i>
-            Proyectos
+            <span>Proyectos</span>
           </a>
         </li>
-        <li class="default-nav__item" nz-menu-item>
-          <a routerLink="/issues" class="default-nav__text" rel="noopener noreferrer">
+        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Issues' : ''">
+          <a routerLink="/issues" rel="noopener noreferrer">
             <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
-            Issues
+            <span>Issues</span>
           </a>
         </li>
-        <li class="default-nav__item" nz-menu-item (click)="logout()">
+        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Logout' : ''" (click)="logout()">
           <i nz-icon nzType="logout" nzTheme="outline"></i>
-          Logout
+          <span>Logout</span>
         </li>
-        <!-- <li nz-submenu>
-          <span title><i nz-icon type="user"></i><span class="nav-text">User</span></span>
-          <ul>
-            <li nz-menu-item>Tom</li>
-            <li nz-menu-item>Bill</li>
-            <li nz-menu-item>Alex</li>
-          </ul>
-        </li>
-        <li nz-submenu>
-          <span title><i nz-icon type="team"></i><span class="nav-text">Team</span></span>
-          <ul>
-            <li nz-menu-item>Team 1</li>
-            <li nz-menu-item>Team 2</li>
-          </ul>
-        </li>
-        <li nz-submenu>
-          <span title><i nz-icon type="team"></i><span class="nav-text">Team</span></span>
-          <ul>
-            <li nz-menu-item>Team 1</li>
-            <li nz-menu-item>Team 2</li>
-          </ul>
-        </li>
-        <li nz-submenu>
-          <span title><i nz-icon type="team"></i><span class="nav-text">Team</span></span>
-          <ul>
-            <li nz-menu-item>Team 1</li>
-            <li nz-menu-item>Team 2</li>
-          </ul>
-        </li>
-        <li nz-submenu>
-          <span title><i nz-icon type="team"></i><span class="nav-text">Team</span></span>
-          <ul>
-            <li nz-menu-item>Team 1</li>
-            <li nz-menu-item>Team 2</li>
-          </ul>
-        </li>
-        <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text">File</span></span></li> -->
       </ul>
     </nz-sider>
-    <nz-content class="default-content default-content--sider-opened">
-      <!-- <div class="default-content__header">
-        <h1 nz-title>Dashboard</h1>
-        <h2 nz-title>Welcome!</h2>
-      </div> -->
+    <nz-content [className]="isCollapsed ? 'default-content default-content--sider-closed' : 'default-content default-content--sider-opened'">
       <main class="main">
         <router-outlet></router-outlet>
       </main>
