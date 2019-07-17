@@ -1,6 +1,6 @@
 <nz-header class="default-header">
-  <nz-sider class="default-header__logo" nzTheme="light" [(nzCollapsed)]="isCollapsed" nzCollapsedWidth="64" nzWidth="184px"
-    nzCollapsible [nzTrigger]="null">
+  <nz-sider class="default-header__logo" nzTheme="light" [(nzCollapsed)]="isCollapsed" nzCollapsedWidth="64"
+    nzWidth="184px" nzCollapsible [nzTrigger]="null">
     <img class="default-header__img" src="./assets/logo-full.svg" alt="">
   </nz-sider>
   <div class="default-nav-wrap">
@@ -10,8 +10,10 @@
       </li>
     </ul>
     <ul class="default-nav" nz-menu nzTheme="light" nzMode="horizontal">
-      <li class="default-nav__item" nz-menu-item (click)="collapsing($event)">
-        <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold' "></i>
+      <li nz-menu-item >
+        <nz-badge [nzCount]="109" [nzStyle]="{ backgroundColor: '#52c41a' }">
+          <i nz-icon nzType="bell" nzTheme="fill" style="font-size: 18px;"></i>
+        </nz-badge>
       </li>
     </ul>
   </div>
