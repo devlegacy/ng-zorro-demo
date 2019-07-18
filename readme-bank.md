@@ -108,3 +108,31 @@ Es una cuenta de depósito bancario a la vista, exenta del cobro de comisiones, 
 
 - Intente abrir mi cuenta hace un par de semanas, se me solicito $5,000 para apertura y no se pudo abrir por fallas en el sistema, la cantidad mencionada no se entrego pero el asesor se quedo con mis datos y quedó en llamar para completar la apertura o transferirme a otra sucursal pero eso nunca pasó, ¿existe algún riesgo de robo de identidad?
 
+### Pregunta para wbt
+
+
+
+
+Hola y buen día al equipo de webtraining y compañeros en el foro.
+
+Tengo la siguiente idea que no he podido desarrollar bien y quisiera leer sus ideas, anexo un poco de contexto:
+He estado manejando un volumen considerable de XML en un sistema y los datos de los xml se leen con PHP junto con SimpleXML, dichos datos se retornan para llenar un formulario y capturar partes especificas del xml.
+Por ahora todo funciona pero quisiera poder retornar los datos del XML como un JSON para manipular mejor la información, pero al usar diversas librerias estos datos no se parsean de manera adecuada y el JSON no resulta adecuado o precisio, leyendo un poco mas vi que puedo usar la libreria DOMDocument para leer el XML de manera ciclica de inicio a fin, recuperar los nodos del XML con su profundidad y usando la clase de SimpleXML leer los datos de cada nodo
+Por ejemplo:
+```xml
+<app>
+	<data info="info">
+		<meta meta="meta"></meta>
+		<meta meta="meta"></meta>
+	</data>
+</app>
+```
+Resoultaria en algo similar a:
+deep:0 = app
+deep:1 = data {info=info}
+deep:2 = meta { meta=meta }
+deep:2 = meta { meta=meta }
+
+Cada nodo es leido de manera independiente y por lo tanto no se tiene idea de los nodos superiores y posteriores pero si tenemos los datos de cada nodo, estaba pensando en usar una estructura de arbol y almacenar cada nodo con su profundidad y un nombre y al leer el arbol crear un objeto dinamico con el nombre y los datos del nodo
+
+http://www.jc-mouse.net/php/validacion-xml-con-esquema-xsd-en-php
