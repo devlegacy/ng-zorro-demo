@@ -1,0 +1,27 @@
+{
+  "files.exclude": {
+    ".vscode": false,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "*git*": true, // For .gitginote, .gitattirbutes
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "nbproject": true,
+    // Angular
+    "**/node_modules/": true,
+    "**/e2e/": true,
+    "**/*.js": true,
+    "**/*.map": true,
+    // Laravel
+    "**/vendor/": true,
+    "**/bootstrap/": true,
+    "**/storage/": true,
+    "**/tests/": true,
+    "*.example": true,
+    "*.yml": true,
+    "*.xml": true,
+    "*lock*": true // For package-lock.json, composer.lock
+  },
+  "prettier.singleQuote": true
+}

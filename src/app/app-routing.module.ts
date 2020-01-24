@@ -30,13 +30,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path:'**',
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: '**',
     component: NotFoundComponent
-  }
-  // {
-  //   path: 'dashboard',
-  //   component: DashboardComponent
-  // }
+  },
 ];
 
 @NgModule({
