@@ -1,0 +1,90 @@
+<nz-layout class="default-layout">
+  <nz-header class="default-header">
+    <nz-sider
+      nzCollapsible
+      nzWidth="256px"
+      nzBreakpoint="md"
+      [(nzCollapsed)]="topSideBarIsCollapsed"
+      [nzTrigger]="null"
+    >
+      <div class="default-layout__sidebar-logo">
+        <a href="https://ng.ant.design/" target="_blank">
+          <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
+          <h1>Default Ant Design Theme</h1>
+        </a>
+      </div>
+    </nz-sider>
+    <ul nz-menu nzTheme="light" nzMode="horizontal">
+      <li
+        class="default__nav-item"
+        nz-menu-item
+        class="trigger"
+        (click)="collapseSideBar()"
+      >
+        <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+      </li>
+      <li nz-menu-item>nav 1</li>
+      <li nz-menu-item>nav 2</li>
+      <li nz-menu-item>nav 3</li>
+    </ul>
+  </nz-header>
+  <nz-layout style="margin-top: 64px;">
+    <nz-sider
+      class="menu-sidebar"
+      nzCollapsible
+      nzWidth="256px"
+      nzBreakpoint="md"
+      [(nzCollapsed)]="isCollapsed"
+      [nzTrigger]="null"
+    >
+      <ul
+        nz-menu
+        nzTheme="dark"
+        nzMode="inline"
+        [nzInlineCollapsed]="isCollapsed"
+      >
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/welcome">Welcome</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Monitor</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Workplace</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>Basic Form</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="default-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i
+              class="trigger"
+              nz-icon
+              [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <div class="default-content__header">
+            <h1>Dashboard</h1>
+            <h2>Welcome!</h2>
+          </div>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>

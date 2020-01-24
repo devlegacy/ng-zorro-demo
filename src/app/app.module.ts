@@ -22,6 +22,8 @@ import { HomeComponent } from './auth/home/home.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { PublicGuard } from './shared/guards/public.guard';
 import { NotFoundComponent } from './common/not-found/not-found.component';
+import { IconsProviderModule } from './icons-provider.module';
+import { WelcomeComponent } from './admin/welcome/welcome.component';
 
 registerLocaleData(es);
 
@@ -35,7 +37,8 @@ registerLocaleData(es);
     SiderComponent,
     LoaderComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ registerLocaleData(es);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    IconsProviderModule
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }, AuthGuard, PublicGuard],
   bootstrap: [AppComponent]

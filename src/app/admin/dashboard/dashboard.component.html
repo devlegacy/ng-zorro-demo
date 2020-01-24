@@ -1,12 +1,23 @@
 <nz-layout class="default-layout">
   <nz-header class="default__header">
-    <nz-sider class="default__header-logo" [(nzCollapsed)]="isCollapsed" nzCollapsedWidth="64" nzWidth="200px"
-      nzCollapsible [nzTrigger]="null">
-      <img class="default__header-img" src="./assets/logo-full.svg" alt="">
+    <nz-sider
+      class="default__header-logo"
+      [(nzCollapsed)]="isCollapsed"
+      nzCollapsedWidth="64"
+      nzWidth="200px"
+      nzCollapsible
+      [nzTrigger]="null"
+    >
+      <img class="default__header-img" src="./assets/logo-full.svg" alt="" />
     </nz-sider>
     <ul class="default__nav" nz-menu nzTheme="light" nzMode="horizontal">
-      <li class="default__nav-item" nz-menu-item class="trigger" (click)="isCollapsed=!isCollapsed">
-        <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold' "></i>
+      <li
+        class="default__nav-item"
+        nz-menu-item
+        class="trigger"
+        (click)="isCollapsed = !isCollapsed"
+      >
+        <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
       </li>
       <!-- <li nz-menu-item>nav 1</li>
       <li nz-menu-item>nav 2</li>
@@ -14,16 +25,32 @@
     </ul>
   </nz-header>
   <nz-layout>
-    <nz-sider class="default-sider" [(nzCollapsed)]="isCollapsed" nzCollapsedWidth="80" nzWidth="200px" nzCollapsible
-      [nzTrigger]="null">
+    <nz-sider
+      class="default-sider"
+      [(nzCollapsed)]="isCollapsed"
+      nzCollapsedWidth="80"
+      nzWidth="200px"
+      nzCollapsible
+      [nzTrigger]="null"
+    >
       <div class="default__avatar">
-        <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+        <nz-avatar
+          nzIcon="user"
+          nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        ></nz-avatar>
         <p><strong>Samuel</strong></p>
         <p>samuel@gmail.com</p>
       </div>
-      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <ul
+        nz-menu
+        nzTheme="light"
+        nzMode="inline"
+        [nzInlineCollapsed]="isCollapsed"
+      >
         <li nz-submenu>
-          <span title><i nz-icon type="user"></i><span class="nav-text">User</span></span>
+          <span title
+            ><i nz-icon type="user"></i><span class="nav-text">User</span></span
+          >
           <ul>
             <li nz-menu-item>Tom</li>
             <li nz-menu-item>Bill</li>
@@ -31,35 +58,58 @@
           </ul>
         </li>
         <li nz-submenu>
-          <span title><i nz-icon type="team"></i><span class="nav-text">Team</span></span>
+          <span title
+            ><i nz-icon type="team"></i><span class="nav-text">Team</span></span
+          >
           <ul>
             <li nz-menu-item>Team 1</li>
             <li nz-menu-item>Team 2</li>
           </ul>
         </li>
-        <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text">File</span></span></li>
+        <li nz-menu-item>
+          <span
+            ><i nz-icon type="file"></i><span class="nav-text">File</span></span
+          >
+        </li>
       </ul>
     </nz-sider>
     <nz-content
-      [className]="isCollapsed ? 'default-content default-content--sider-closed' : 'default-content default-content--sider-opened'">
+      [className]="
+        isCollapsed
+          ? 'default-content default-content--sider-closed'
+          : 'default-content default-content--sider-opened'
+      "
+    >
       <div class="default-content__header">
         <h1>Dashboard</h1>
         <h2>Welcome!</h2>
       </div>
       <main class="main">
-
         <form nz-form>
-
           <nz-form-item>
             <nz-form-label [nzSpan]="4">Nombre</nz-form-label>
-            <nz-form-control [nzSpan]="14" nzErrorTip="Please input your username!">
-              <input nz-input formControlName="fieldA" placeholder="input placeholder" />
+            <nz-form-control
+              [nzSpan]="14"
+              nzErrorTip="Please input your username!"
+            >
+              <input
+                nz-input
+                formControlName="fieldA"
+                placeholder="input placeholder"
+              />
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
             <nz-form-label [nzSpan]="4">Descripción</nz-form-label>
-            <nz-form-control [nzSpan]="14" nzErrorTip="Please input your Password!">
-              <textarea nz-input formControlName="filedB" placeholder="input placeholder"></textarea>
+            <nz-form-control
+              [nzSpan]="14"
+              nzErrorTip="Please input your Password!"
+            >
+              <textarea
+                nz-input
+                formControlName="filedB"
+                placeholder="input placeholder"
+              ></textarea>
             </nz-form-control>
           </nz-form-item>
           <nz-form-item>
@@ -93,8 +143,18 @@
           </tbody>
         </nz-table>
         <button nz-button nzType="primary" (click)="open()">Create</button>
-        <nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom': '53px' }"
-          [nzMaskClosable]="false" [nzWidth]="720" [nzVisible]="visible" nzTitle="Create" (nzOnClose)="close()">
+        <nz-drawer
+          [nzBodyStyle]="{
+            height: 'calc(100% - 55px)',
+            overflow: 'auto',
+            'padding-bottom': '53px'
+          }"
+          [nzMaskClosable]="false"
+          [nzWidth]="720"
+          [nzVisible]="visible"
+          nzTitle="Create"
+          (nzOnClose)="close()"
+        >
           <form nz-form>
             <div nz-row nzGutter="8">
               <div nz-col nzSpan="12">
@@ -110,7 +170,11 @@
                   <nz-form-label>Url</nz-form-label>
                   <nz-form-control>
                     <nz-input-group nzAddOnBefore="http://" nzAddOnAfter=".com">
-                      <input type="text" nz-input placeholder="please enter url" />
+                      <input
+                        type="text"
+                        nz-input
+                        placeholder="please enter url"
+                      />
                     </nz-input-group>
                   </nz-form-control>
                 </nz-form-item>
@@ -121,7 +185,9 @@
                 <nz-form-item>
                   <nz-form-label>Owner</nz-form-label>
                   <nz-form-control>
-                    <nz-select nzPlaceHolder="Please select an owner"></nz-select>
+                    <nz-select
+                      nzPlaceHolder="Please select an owner"
+                    ></nz-select>
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -129,7 +195,9 @@
                 <nz-form-item>
                   <nz-form-label>Type</nz-form-label>
                   <nz-form-control>
-                    <nz-select nzPlaceHolder="Please choose the type"></nz-select>
+                    <nz-select
+                      nzPlaceHolder="Please choose the type"
+                    ></nz-select>
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -139,7 +207,9 @@
                 <nz-form-item>
                   <nz-form-label>Approver</nz-form-label>
                   <nz-form-control>
-                    <nz-select nzPlaceHolder="Please choose the approver"></nz-select>
+                    <nz-select
+                      nzPlaceHolder="Please choose the approver"
+                    ></nz-select>
                   </nz-form-control>
                 </nz-form-item>
               </div>
@@ -157,120 +227,135 @@
                 <nz-form-item>
                   <nz-form-label>Description</nz-form-label>
                   <nz-form-control>
-                    <textarea nz-input placeholder="please enter url description"
-                      [nzAutosize]="{ minRows: 4, maxRows: 4 }"></textarea>
+                    <textarea
+                      nz-input
+                      placeholder="please enter url description"
+                      [nzAutosize]="{ minRows: 4, maxRows: 4 }"
+                    ></textarea>
                   </nz-form-control>
                 </nz-form-item>
               </div>
             </div>
           </form>
           <div class="footer">
-            <button type="button" (click)="close()" class="ant-btn"
-              style="margin-right: 8px;"><span>Cancel</span></button>
-            <button type="button" (click)="close()" class="ant-btn ant-btn-primary"><span>Submit</span></button>
+            <button
+              type="button"
+              (click)="close()"
+              class="ant-btn"
+              style="margin-right: 8px;"
+            >
+              <span>Cancel</span>
+            </button>
+            <button
+              type="button"
+              (click)="close()"
+              class="ant-btn ant-btn-primary"
+            >
+              <span>Submit</span>
+            </button>
           </div>
         </nz-drawer>
       </main>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <nz-footer>Footer</nz-footer>
     </nz-content>
   </nz-layout>

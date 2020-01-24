@@ -1,35 +1,83 @@
 <!-- <nz-alert nzBanner nzType="error" nzMessage="Ocurrrio un error de conexión"></nz-alert> -->
-<nz-layout class="default-layout" *ngIf="_authService.isLoggedIn(); else userloggedOut">
-  <app-header [isCollapsed]="isCollapsed" (changeCollapsed)="onChangeCollapsed($event)"></app-header>
+<nz-layout
+  class="default-layout"
+  *ngIf="_authService.isLoggedIn(); else userloggedOut"
+>
+  <app-header
+    [isCollapsed]="isCollapsed"
+    (changeCollapsed)="onChangeCollapsed($event)"
+  ></app-header>
   <nz-layout>
-    <nz-sider class="default-sider" [(nzCollapsed)]="isCollapsed" nzTheme="light" nzCollapsedWidth="80" nzWidth="200px"
-      nzCollapsible [nzTrigger]="null">
+    <nz-sider
+      class="default-sider"
+      [(nzCollapsed)]="isCollapsed"
+      nzTheme="light"
+      nzCollapsedWidth="80"
+      nzWidth="200px"
+      nzCollapsible
+      [nzTrigger]="null"
+    >
       <div class="default__avatar">
-        <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-        <p><strong>{{_authService.user.name}}</strong></p>
+        <nz-avatar
+          nzIcon="user"
+          nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        ></nz-avatar>
         <p>
-          <a href="mailto:{{_authService.user.email}}">{{_authService.user.email}}</a></p>
+          <strong>{{ _authService.user.name }}</strong>
+        </p>
+        <p>
+          <a href="mailto:{{ _authService.user.email }}">{{
+            _authService.user.email
+          }}</a>
+        </p>
       </div>
-      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Proyectos' : ''">
+      <ul
+        nz-menu
+        nzTheme="light"
+        nzMode="inline"
+        [nzInlineCollapsed]="isCollapsed"
+      >
+        <li
+          nz-menu-item
+          nz-tooltip
+          nzPlacement="right"
+          [nzTitle]="isCollapsed ? 'Proyectos' : ''"
+        >
           <a routerLink="/projects" class="" rel="noopener noreferrer">
             <i nz-icon nzType="folder-open" nzTheme="outline"></i>
             <span>Proyectos</span>
           </a>
         </li>
-        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Issues' : ''">
+        <li
+          nz-menu-item
+          nz-tooltip
+          nzPlacement="right"
+          [nzTitle]="isCollapsed ? 'Issues' : ''"
+        >
           <a routerLink="/issues" rel="noopener noreferrer">
             <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
             <span>Issues</span>
           </a>
         </li>
-        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Logout' : ''" (click)="logout()">
+        <li
+          nz-menu-item
+          nz-tooltip
+          nzPlacement="right"
+          [nzTitle]="isCollapsed ? 'Logout' : ''"
+          (click)="logout()"
+        >
           <i nz-icon nzType="logout" nzTheme="outline"></i>
           <span>Logout</span>
         </li>
       </ul>
     </nz-sider>
-    <nz-content [className]="isCollapsed ? 'default-content default-content--sider-closed' : 'default-content default-content--sider-opened'">
+    <nz-content
+      [className]="
+        isCollapsed
+          ? 'default-content default-content--sider-closed'
+          : 'default-content default-content--sider-opened'
+      "
+    >
       <main class="main">
         <router-outlet></router-outlet>
       </main>
