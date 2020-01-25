@@ -45,25 +45,50 @@
     margin-right: 24px;"
     >
       <li nz-menu-item>
-        <nz-badge [nzCount]="109" [nzStyle]="{ backgroundColor: '#52c41a' }">
-          <i nz-icon nzType="bell" nzTheme="outline"></i>
+        <nz-badge
+          [nzCount]="200"
+          [nzStyle]="{
+            backgroundColor: '#52c41a',
+            fontSize: '14px',
+            padding: '2px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            boxShadow: '0 0 0 1px #d9d9d9 inset'
+          }"
+        >
+          <i
+            nz-icon
+            nzType="bell"
+            style="font-size: 20px;"
+            nzTheme="outline"
+          ></i>
         </nz-badge>
       </li>
       <li nz-menu-item>
-        <a nz-dropdown [nzDropdownMenu]="menu">
+        <a class="flex-center" nz-dropdown [nzDropdownMenu]="menu">
           <nz-avatar
             nzIcon="user"
-            nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            nzSrc="https://img.buzzfeed.com/buzzfeed-static/static/2020-01/24/23/asset/d809bd59c5a7/anigif_sub-buzz-184-1579907110-7.gif"
           ></nz-avatar>
           Admin
-          <i nz-icon nzType="down"></i>
+          <!-- <i nz-icon nzType="down"></i> -->
         </a>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
-            <li nz-menu-item>1st menu item</li>
-            <li nz-menu-item>2nd menu item</li>
+            <li nz-menu-item>
+              <i nz-icon nzType="user" nzTheme="outline"></i>
+              Account
+            </li>
+            <li nz-menu-item>
+              <i nz-icon nzType="setting" nzTheme="outline"></i>
+              Account settings
+            </li>
             <li nz-menu-divider></li>
-            <li nz-menu-item nzDisabled>3rd menu item（disabled）</li>
+            <li nz-menu-item>
+              <i nz-icon nzType="logout" nzTheme="outline"></i>
+              Logout
+            </li>
           </ul>
         </nz-dropdown-menu>
       </li>
