@@ -4,31 +4,62 @@
       nzCollapsible
       nzWidth="256px"
       nzBreakpoint="md"
-      [(nzCollapsed)]="topSideBarIsCollapsed"
+      [(nzCollapsed)]="topSideBarBrandIsCollapsed"
       [nzTrigger]="null"
     >
-      <div class="default-layout__sidebar-logo">
+      <div class="default-top-brand">
         <a href="https://ng.ant.design/" target="_blank">
-          <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
-          <h1>Default Ant Design Theme</h1>
+          <img
+            class="default-top-brand__logo"
+            src="https://ng.ant.design/assets/img/logo.svg"
+            alt="logo"
+          />
+          <h1 class="default-top-brand__title">Default Ant Design Theme</h1>
         </a>
       </div>
     </nz-sider>
-    <ul nz-menu nzTheme="light" nzMode="horizontal">
-      <li
-        class="default__nav-item"
-        nz-menu-item
-        class="trigger"
-        (click)="collapseSideBar()"
-      >
-        <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+    <ul nz-menu class="my-nav" nzTheme="dark" nzMode="horizontal">
+      <li nz-menu-item class="trigger" (click)="collapseSideBar()">
+        <i
+          nz-icon
+          [nzType]="isCollapsed ? 'menu' : 'menu-fold'"
+          nzTheme="outline"
+        ></i>
       </li>
-      <li nz-menu-item>nav 1</li>
-      <li nz-menu-item>nav 2</li>
-      <li nz-menu-item>nav 3</li>
+      <li nz-menu-item>
+        <i nz-icon nzType="home" nzTheme="outline"></i>
+      </li>
+      <li nz-menu-item>
+        <i nz-icon nzType="github" nzTheme="outline"></i>
+      </li>
+      <li nz-menu-item>
+        <i nz-icon nzType="gitlab" nzTheme="outline"></i>
+      </li>
+
+      <li nz-menu-item>
+        <nz-avatar
+          nzIcon="user"
+          nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        ></nz-avatar>
+        Admin
+      </li>
+      <li nz-menu-item>
+        <a nz-dropdown [nzDropdownMenu]="menu">
+          Hover me
+          <i nz-icon nzType="down"></i>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item>1st menu item</li>
+            <li nz-menu-item>2nd menu item</li>
+            <li nz-menu-divider></li>
+            <li nz-menu-item nzDisabled>3rd menu item（disabled）</li>
+          </ul>
+        </nz-dropdown-menu>
+      </li>
     </ul>
   </nz-header>
-  <nz-layout style="margin-top: 64px;">
+  <nz-layout style="margin-top: 64px; ">
     <nz-sider
       class="menu-sidebar"
       nzCollapsible
@@ -36,10 +67,11 @@
       nzBreakpoint="md"
       [(nzCollapsed)]="isCollapsed"
       [nzTrigger]="null"
+      nzTheme="light"
     >
       <ul
         nz-menu
-        nzTheme="dark"
+        nzTheme="light"
         nzMode="inline"
         [nzInlineCollapsed]="isCollapsed"
       >
@@ -66,23 +98,112 @@
       </ul>
     </nz-sider>
     <nz-layout>
-      <nz-header>
-        <div class="default-header">
-          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <i
-              class="trigger"
-              nz-icon
-              [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
-          </span>
-        </div>
-      </nz-header>
       <nz-content>
         <div class="inner-content">
           <div class="default-content__header">
             <h1>Dashboard</h1>
             <h2>Welcome!</h2>
           </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </div>
       </nz-content>
     </nz-layout>

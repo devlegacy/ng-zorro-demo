@@ -4,6 +4,7 @@ $soft-peach: #efe3e5;
 $athens-grey: #fafbfc;
 $gray: #929292;
 $midnight: #001529;
+$header-size: 64px;
 
 :host {
   display: flex;
@@ -19,49 +20,47 @@ $midnight: #001529;
     height: 100vh;
 
     flex-direction: column;
-    &__sidebar {
-      &-logo {
-        position: relative;
+  }
+  &-top-brand {
+    position: relative;
 
-        height: 64px;
-        padding-left: 24px;
-        overflow: hidden;
+    height: $header-size;
+    padding-left: 24px;
+    overflow: hidden;
 
-        background: $dodger-blue;
+    background: $dodger-blue;
 
-        line-height: 64px;
+    line-height: $header-size;
 
-        transition: all .3s;
-        img {
-          display: inline-block;
-          width: 32px;
-          height: 32px;
+    transition: all .3s;
+    &__logo {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
 
-          vertical-align: middle;
-        }
+      vertical-align: middle;
+    }
+    &__title {
+      display: inline-block;
+      margin: 0 0 0 20px;
 
-        h1 {
-          display: inline-block;
-          margin: 0 0 0 20px;
+      color: $white;
 
-          color: $white;
-
-          font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
-          font-size: 14px;
-          font-weight: 600;
-          vertical-align: middle;
-        }
-      }
+      font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      vertical-align: middle;
     }
   }
+
   &-header {
     position: fixed;
     z-index: 1;
 
     display: flex;
-    box-shadow: 0 1px 10px rgba(0,0,0,.2);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, .2);
     width: 100%;
-    height: 64px;
+    height: $header-size;
     padding: 0;
 
     background: $dodger-blue;
@@ -69,13 +68,63 @@ $midnight: #001529;
 
     align-items: center;
   }
+  &-content {
+    &__header {
+      display: flex;
+      padding: 12px 24px;
+      border-bottom: 1px solid $soft-peach;
+
+      background-color: $athens-grey;
+      color: $gray;
+
+      flex-direction: column;
+      justify-content: space-between;
+      h1 {
+        margin-bottom: 0;
+
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.my-nav {
+  display: flex;
+
+  background: transparent;
+
+  & .ant-menu {
+    &-item {
+      display: flex;
+      min-width: 50px;
+      height: 34px;
+      padding: 0 4px;
+      border-radius: 4px;
+
+      color: $white;
+
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        background: rgba(255, 255, 255, .5);
+      }
+
+      i {
+        margin: 0;
+      }
+
+      &-selected {
+        color: $white;
+      }
+    }
+  }
 }
 
 .menu-sidebar {
-  position: relative;
+  position: fixed;
   z-index: 10;
 
-  box-shadow: 2px 0 6px rgba(0,21,41,.35);
+  box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
   min-height: 100vh;
 }
 
@@ -86,15 +135,12 @@ $midnight: #001529;
   font-size: 20px;
 
   cursor: pointer;
-  transition: all .3s,padding 0s;
+  transition: all .3s, padding 0s;
 }
 
 .trigger:hover {
   color: $dodger-blue;
 }
-
-
-
 
 nz-header {
   z-index: 2;
@@ -104,7 +150,7 @@ nz-header {
 }
 
 nz-content {
-  margin: 24px;
+  margin-left: 80px;
 }
 
 .inner-content {
@@ -112,4 +158,10 @@ nz-content {
   padding: 24px;
 
   background: $white;
+}
+
+.is-open {
+  // When is close
+  // margin-left: 80px;
+  margin-left: 256px;
 }

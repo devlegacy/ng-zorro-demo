@@ -9,7 +9,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 export class WelcomeComponent implements OnInit, OnDestroy {
   mediaQueryMobile: MediaQueryList;
   isCollapsed = false;
-  topSideBarIsCollapsed = false;
+  topSideBarBrandIsCollapsed = false;
 
   constructor(public mediaMatcher: MediaMatcher) { }
 
@@ -30,7 +30,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
   collapseSideBar() {
     console.log(this.mediaQueryMobile.matches);
 
-    this.topSideBarIsCollapsed = this.mediaQueryMobile.matches ? !this.topSideBarIsCollapsed : true;
+    this.topSideBarBrandIsCollapsed = this.mediaQueryMobile.matches ? !this.topSideBarBrandIsCollapsed : true;
 
     this.isCollapsed = !this.isCollapsed;
   }
