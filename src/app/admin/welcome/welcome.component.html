@@ -35,17 +35,27 @@
       <li nz-menu-item>
         <i nz-icon nzType="gitlab" nzTheme="outline"></i>
       </li>
-
+    </ul>
+    <ul
+      nz-menu
+      class="my-nav"
+      nzTheme="dark"
+      nzMode="horizontal"
+      style="margin-left: auto;
+    margin-right: 24px;"
+    >
       <li nz-menu-item>
-        <nz-avatar
-          nzIcon="user"
-          nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        ></nz-avatar>
-        Admin
+        <nz-badge [nzCount]="109" [nzStyle]="{ backgroundColor: '#52c41a' }">
+          <i nz-icon nzType="bell" nzTheme="outline"></i>
+        </nz-badge>
       </li>
       <li nz-menu-item>
         <a nz-dropdown [nzDropdownMenu]="menu">
-          Hover me
+          <nz-avatar
+            nzIcon="user"
+            nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          ></nz-avatar>
+          Admin
           <i nz-icon nzType="down"></i>
         </a>
         <nz-dropdown-menu #menu="nzDropdownMenu">
